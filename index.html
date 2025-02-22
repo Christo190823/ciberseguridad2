@@ -9,17 +9,10 @@
 </head>
 
 <body>
-    <h2>Sanitizador de HTML</h2>
-    <textarea id="inputHtml" rows="5" cols="50">
-            <h1>Hola</h1>
-<script>alert('Hackeado!');</script>
-<style>body { background-color: red; }</style>
-<p>Esto es seguro.</p>
-
-        </textarea>
-    <br>
+    <h2>Ingresa el código HTML</h2>
+    <textarea id="inputHtml" placeholder="Escribe aquí tu código HTML..."></textarea>
     <button onclick="sanitizarHtml()">Sanitizar HTML</button>
-    <h3>Resultado:</h3>
+    <h2>Resultado:</h2>
     <div id="outputHtml"></div>
     <script src="validar.js" defer></script>
 
