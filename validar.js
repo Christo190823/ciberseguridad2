@@ -5,7 +5,7 @@ function sanitizarHtml() {
     let doc = parser.parseFromString(input, "text/html");
 
     
-    doc.querySelectorAll("script, style, iframe, object, embed").forEach(el => el.remove());
+    doc.querySelectorAll("script, style, iframe, object, embed, marquee").forEach(el => el.remove());
 
     //doc.querySelectorAll("iframe").forEach(el => el.remove());
 
