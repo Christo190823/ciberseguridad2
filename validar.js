@@ -1,21 +1,9 @@
-
 function sanitizarHtml() {
     let input = document.getElementById("inputHtml").value;
-    let parser = new DOMParser();
-    let doc = parser.parseFromString(input, "text/html");
 
-    
-    doc.querySelectorAll("script, style, iframe, object, embed, marquee").forEach(el => el.remove());
+    // Expresión regular para eliminar las etiquetas pero dejar su contenido
+    let sanitizedHtml = input.replace(/<\/?(script|marquee|iframe|object|embed|style)[^>]*>/gi, "");
 
-    //doc.querySelectorAll("iframe").forEach(el => el.remove());
-
-    //doc.querySelectorAll("object, embed").forEach(el => el.remove());
-
-    doc.querySelectorAll("*").forEach(el => {
-        Array.from(el.attributes).forEach(attr => {
-            if (attr.name.startsWith("on")) el.removeAttribute(attr.name);
-        });
-    });
-    
-    document.getElementById("outputHtml").innerHTML = doc.body.innerHTML;
+    // Mostrar el resultado
+    document.getElementById("outputHtml").innerHTML = sanitizedHtml;
 }
