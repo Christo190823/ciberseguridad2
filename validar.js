@@ -1,9 +1,7 @@
 function sanitizarHtml() {
     let input = document.getElementById("inputHtml").value;
 
-    // Expresión regular para eliminar las etiquetas pero dejar su contenido
-    let sanitizedHtml = input.replace(/<\/?(script|marquee|iframe|object|embed|style)[^>]*>/gi, "");
-
-    // Mostrar el resultado
+    let sanitizedHtml = input.replace(/<\/?(script|marquee|iframe|object|embed|style|link|applet|blink|form|input|textarea|button|select|option|)[^>]*>/gi, "");
+    
     document.getElementById("outputHtml").innerHTML = sanitizedHtml;
 }
