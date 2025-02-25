@@ -5,11 +5,11 @@ function sanitizarHtml() {
     let doc = parser.parseFromString(input, "text/html");
 
     
-    doc.querySelectorAll("script, style").forEach(el => el.remove());
+    doc.querySelectorAll("script, style, iframe, object, embed").forEach(el => el.remove());
 
-    doc.querySelectorAll("iframe").forEach(el => el.remove());
+    //doc.querySelectorAll("iframe").forEach(el => el.remove());
 
-    doc.querySelectorAll("object, embed").forEach(el => el.remove());
+    //doc.querySelectorAll("object, embed").forEach(el => el.remove());
 
     doc.querySelectorAll("*").forEach(el => {
         Array.from(el.attributes).forEach(attr => {
